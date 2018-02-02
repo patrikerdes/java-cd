@@ -10,3 +10,5 @@ dependencies {
 }
 
 mainClassName = "se.patrikerdes.hello.HelloWorld"
+
+task stage(dependsOn: ['clean', 'installDist'])

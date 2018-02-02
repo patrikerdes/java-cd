@@ -1,1 +1,1 @@
-web: ./gradlew run
+web: ./build/install/java-ci/bin/java-ci
