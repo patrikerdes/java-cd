@@ -1,1 +1,1 @@
-web: build/install/java-ci/bin/java-ci
+web: build/install/java-cd/bin/java-cd
