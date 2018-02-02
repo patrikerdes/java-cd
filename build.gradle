@@ -1,15 +1,29 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile "com.sparkjava:spark-core:2.7.1"
+    compile 'com.sparkjava:spark-core:2.7.1'
+    testCompile 'io.rest-assured:rest-assured:3.0.6'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.1'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.0.1'
 }
 
-mainClassName = "se.patrikerdes.hello.HelloWorld"
+mainClassName = 'se.patrikerdes.hello.HelloWorld'
 
-task stage(dependsOn: ['clean', 'installDist'])
-installDist.mustRunAfter clean
+task stage(dependsOn: ['clean', 'installDist', 'check'])
+check.mustRunAfter clean
+installDist.mustRunAfter check
