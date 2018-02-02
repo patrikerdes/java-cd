@@ -1,17 +1,18 @@
 package se.patrikerdes.hello;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 public class HelloWorldTest {
-    @Test
-    void testPassing() {
-        assertEquals(true, true);
-    }
+    final static HelloWorld helloWorld = new HelloWorld();
 
     @Test
-    void testFailing() {
-        assertEquals(true, false);
+    void testRoot() {
+        helloWorld.main(new String[]{"8080"});
+        when().get("/").then().
+                statusCode(200).
+                body("message", equalTo("Hello world!")).
+                contentType("application/json");
     }
 }
