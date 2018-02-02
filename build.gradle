@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.3'
     }
 }
 
@@ -18,8 +18,8 @@ repositories {
 dependencies {
     compile 'com.sparkjava:spark-core:2.7.1'
     testCompile 'io.rest-assured:rest-assured:3.0.6'
-    testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.1'
-    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.0.1'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.3'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.0.3'
 }
 
 mainClassName = 'se.patrikerdes.hello.HelloWorld'
