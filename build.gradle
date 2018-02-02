@@ -24,6 +24,4 @@ dependencies {
 
 mainClassName = 'se.patrikerdes.hello.HelloWorld'
 
-task stage(dependsOn: ['clean', 'installDist', 'check'])
-check.mustRunAfter clean
-installDist.mustRunAfter check
+task stage(dependsOn: ['installDist'])
