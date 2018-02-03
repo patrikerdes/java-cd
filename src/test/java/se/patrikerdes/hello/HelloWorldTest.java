@@ -1,15 +1,23 @@
 package se.patrikerdes.hello;
 
-import org.junit.Test;
+import org.junit.*;
 import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.*;
 
 public class HelloWorldTest {
-    final static HelloWorld helloWorld = new HelloWorld();
+
+    @BeforeClass
+    public static void startUp() {
+        HelloWorld.start(8080);
+    }
+
+    @AfterClass
+    public static void shutDown() {
+        HelloWorld.stop();
+    }
 
     @Test
     public void testRoot() {
-        helloWorld.main(new String[]{"8080"});
         when().get("/").then().
                 statusCode(200).
                 body("message", equalTo("Hello world!")).
