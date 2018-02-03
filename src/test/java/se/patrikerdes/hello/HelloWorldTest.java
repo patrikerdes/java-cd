@@ -1,14 +1,14 @@
 package se.patrikerdes.hello;
 
-import org.junit.jupiter.api.Test;
-import static io.restassured.RestAssured.*;
+import org.junit.Test;
 import static org.hamcrest.Matchers.*;
+import static io.restassured.RestAssured.*;
 
 public class HelloWorldTest {
     final static HelloWorld helloWorld = new HelloWorld();
 
     @Test
-    void testRoot() {
+    public void testRoot() {
         helloWorld.main(new String[]{"8080"});
         when().get("/").then().
                 statusCode(200).
