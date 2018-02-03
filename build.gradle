@@ -18,3 +18,5 @@ dependencies {
 mainClassName = 'se.patrikerdes.hello.HelloWorld'
 
 task stage(dependsOn: ['installDist'])
+
+test.outputs.upToDateWhen {false}
