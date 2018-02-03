@@ -20,7 +20,7 @@ public class HelloWorld {
         http.port(port);
         http.get("/", (req, res) -> {
             res.type("application/json");
-            return "{\"message\":\"Hello World!\"}";
+            return "{\"message\":\"Hello world!\"}";
         });
     }
 
